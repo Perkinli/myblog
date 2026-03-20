@@ -9,12 +9,12 @@ title = "Perkin's Blog"
   isoCode = "zh-CN"
   rtl = false
   dateFormat = "2006年1月2日"
-  description = "Perkin 的个人博客 - 技术笔记与学术分享"
+  description = "Perkin Li 的研究型博客，专注文献拆解、LLM/MLLM、Agent 与工程化实践。"
 
 [params.author]
   name = "Perkin Li"
-  headline = "Tech & Research"
-  bio = "热爱技术，热爱学习"
+  headline = "RL / MLLM / Embodied AI 研究笔记"
+  bio = "关注 RL、MLLM 与 Embodied AI，主要记录论文阅读、问题拆解与实验过程中的个人笔记。"
   links = [
     { github = "https://github.com/Perkinli" },
   ]

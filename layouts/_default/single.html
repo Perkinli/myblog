@@ -1,0 +1,110 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+  <article class="article-shell">
+    {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
+      {{ $heroStyle := .Params.heroStyle }}
+      {{ if not $heroStyle }}{{ $heroStyle = site.Params.article.heroStyle }}{{ end }}
+      {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+      {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+        {{ partial $heroStyle . }}
+      {{ else }}
+        {{ partial "hero/basic.html" . }}
+      {{ end }}
+    {{ end }}
+
+    <header id="single_header" class="single-hero">
+      <p class="single-hero__kicker">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Article{{ end }}</p>
+      <h1>{{ .Title | emojify }}</h1>
+      {{ with .Description }}
+        <p class="single-hero__dek">{{ . }}</p>
+      {{ end }}
+      <div class="single-hero__meta text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+      </div>
+      <div class="single-hero__tags print:hidden">
+        {{ range (.GetTerms "tags") }}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+      </div>
+      {{ if or .Params.paper .Params.coreQuestion .Params.coreAnswer }}
+        <div class="single-brief">
+          {{ with .Params.paper }}
+            <div>
+              <span>Paper</span>
+              {{ with $.Params.paperLink }}<a href="{{ . }}">{{ $.Params.paper }}</a>{{ else }}{{ $.Params.paper }}{{ end }}
+            </div>
+          {{ end }}
+          {{ with .Params.paperVenue }}
+            <div>
+              <span>Venue</span>
+              {{ . }}
+            </div>
+          {{ end }}
+          {{ with .Params.coreQuestion }}
+            <div>
+              <span>Core Question</span>
+              {{ . }}
+            </div>
+          {{ end }}
+          {{ with .Params.coreAnswer }}
+            <div>
+              <span>Takeaway</span>
+              {{ . }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </header>
+
+    <section class="single-layout">
+      {{ $enableToc := site.Params.article.showTableOfContents | default false }}
+      {{ $enableToc = .Params.showTableOfContents | default $enableToc }}
+      {{ $showToc := and $enableToc (in .TableOfContents "<ul") }}
+      {{ $topClass := cond (hasPrefix site.Params.header.layout "fixed") "lg:top-[140px]" "lg:top-10" }}
+      <div class="single-layout__content">
+        {{ partial "series/series.html" . }}
+        <div class="article-content paper-article prose dark:prose-invert">
+          {{ .Content }}
+          {{ $defaultReplyByEmail := site.Params.replyByEmail }}
+          {{ $replyByEmail := default $defaultReplyByEmail .Params.replyByEmail }}
+          {{ if $replyByEmail }}
+            <strong class="block mt-8">
+              <a
+                class="email-link m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+                href="#"
+                data-email="{{ site.Params.Author.email | base64Encode }}"
+                data-subject="{{ replace (printf "Reply to %s" .Title) "\"" "'" }}">
+                {{ i18n "article.reply_by_email" | default "Reply by Email" }}
+              </a>
+            </strong>
+          {{ end }}
+        </div>
+        {{ partial "series/series-closed.html" . }}
+        {{ partial "sharing-links.html" . }}
+        {{ partial "related.html" . }}
+      </div>
+
+      {{ if $showToc }}
+        <aside class="order-first lg:order-last lg:ps-2 lg:max-w-xs w-full print:hidden">
+          <div class="toc lg:sticky {{ $topClass }}">
+            {{ partial "toc.html" . }}
+          </div>
+        </aside>
+      {{ end }}
+    </section>
+
+    <footer class="pt-8 max-w-prose print:hidden">
+      {{ partial "article-pagination.html" . }}
+      {{ if .Params.showComments | default (site.Params.article.showComments | default false) }}
+        {{ if templates.Exists "partials/comments.html" }}
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+            <div class="pt-3">
+              {{ partial "comments.html" . }}
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    </footer>
+  </article>
+{{ end }}
