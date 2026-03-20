@@ -3,7 +3,7 @@ title: "LOCOMO——长期对话数据集+评估框架"
 date: 2026-03-20
 description: "ACL 2024 论文《Evaluating Very Long-Term Conversational Memory of LLM Agents》阅读笔记。"
 summary: "提出长期对话数据集 LOCOMO，设计问答、总结、生成三类评估任务，并比较基础 LLM、长上下文 LLM 与 RAG 增强 LLM 在长期记忆场景下的表现。"
-slug: "locomo-paper-notes"
+url: "/posts/MLLM/locomo/"
 tags: ["MLLM", "长期记忆", "RAG", "ACL 2024", "论文笔记"]
 categories: ["论文笔记"]
 showSummary: true

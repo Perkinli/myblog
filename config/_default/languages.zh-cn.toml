@@ -9,7 +9,7 @@ title = "Perkin's Blog"
   isoCode = "zh-CN"
   rtl = false
   dateFormat = "2006年1月2日"
-  description = "Perkin Li 的研究型博客，专注文献拆解、LLM/MLLM、Agent 与工程化实践。"
+  description = "Perkin Li 的研究笔记，主要记录 RL、MLLM 与 Embodied AI 相关的论文阅读。"
 
 [params.author]
   name = "Perkin Li"

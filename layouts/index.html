@@ -19,7 +19,7 @@
       </div>
       <aside class="home-panel">
         <h2>写作方向</h2>
-        <p>这里不是信息流，而是一块长期工作台：把论文拆开、把系统讲清、把经验沉淀下来。</p>
+        <p>这个站点主要用来按研究方向整理阅读笔记，尽量保持内容简洁、结构清楚、方便自己长期回看。</p>
         <div class="home-stats">
           <div>
             <strong>{{ len $posts }}</strong>
@@ -34,70 +34,72 @@
             <span>内容栏目</span>
           </div>
         </div>
-        <p>这里主要围绕 RL、MLLM 与 Embodied AI 做长期记录，也保留一些和模型评测、系统实现相关的研究笔记。</p>
+        <p>目前按 MLLM、RL、Embodied AI 三个主题持续归档，后续新笔记会直接进入对应目录。</p>
       </aside>
     </section>
 
     <section class="home-section">
       <div class="home-section__header">
         <div>
-          <p class="home-kicker">Latest Notes</p>
-          <h2 class="home-section__title">最近在写什么</h2>
-          <p class="home-section__intro">优先保留高密度但可复用的内容：文献拆解、结构总结、方法判断和落地想法。</p>
+          <p class="home-kicker">Research Areas</p>
+          <h2 class="home-section__title">主题目录</h2>
+          <p class="home-section__intro">按研究方向分类归档，后续阅读笔记会持续放进对应目录中。</p>
         </div>
-        <a class="home-section__all" href="/posts/">查看全部文章</a>
+        <a class="home-section__all" href="/posts/">查看全部目录</a>
       </div>
       <div class="note-grid">
-        {{ range first 1 $posts }}
-          {{ $page := . }}
-          <a class="note-card note-card--feature" href="{{ .RelPermalink }}">
-            <div class="note-card__meta">最新更新</div>
-            <h3 class="note-card__title">{{ .Title }}</h3>
-            <p class="note-card__desc">
-              {{ with .Description }}
-                {{ . }}
-              {{ else }}
-                {{ with .Params.summary }}
-                  {{ . }}
-                {{ else }}
-                  {{ $page.Summary | plainify | truncate 150 }}
-                {{ end }}
-              {{ end }}
-            </p>
-            <div class="note-card__footer">{{ partial "meta/date.html" .Date }}{{ with .Params.categories }}<span class="px-2 text-primary-500">&middot;</span>{{ index . 0 }}{{ end }}</div>
-          </a>
-        {{ end }}
-        {{ range first 2 (after 1 $posts) }}
-          {{ $page := . }}
-          <a class="note-card" href="{{ .RelPermalink }}">
-            <div class="note-card__meta">文章</div>
-            <h3 class="note-card__title">{{ .Title }}</h3>
-            <p class="note-card__desc">
-              {{ with .Description }}
-                {{ . }}
-              {{ else }}
-                {{ with .Params.summary }}
-                  {{ . }}
-                {{ else }}
-                  {{ $page.Summary | plainify | truncate 120 }}
-                {{ end }}
-              {{ end }}
-            </p>
-            <div class="note-card__footer">{{ partial "meta/date.html" .Date }}</div>
-          </a>
-        {{ end }}
+        <a class="note-card note-card--feature" href="/posts/mllm/">
+          <div class="note-card__meta">目录</div>
+          <h3 class="note-card__title">MLLM</h3>
+          <p class="note-card__desc">多模态大模型相关的论文阅读、评测笔记与方法记录。</p>
+          <div class="note-card__footer">进入目录</div>
+        </a>
+        <a class="note-card" href="/posts/rl/">
+          <div class="note-card__meta">目录</div>
+          <h3 class="note-card__title">RL</h3>
+          <p class="note-card__desc">强化学习相关的论文阅读与实验笔记，后续会逐步补充。</p>
+          <div class="note-card__footer">进入目录</div>
+        </a>
+        <a class="note-card" href="/posts/embodied-ai/">
+          <div class="note-card__meta">目录</div>
+          <h3 class="note-card__title">Embodied AI</h3>
+          <p class="note-card__desc">具身智能方向的阅读记录、任务理解与系统观察。</p>
+          <div class="note-card__footer">进入目录</div>
+        </a>
       </div>
     </section>
 
-    <section class="home-manifesto">
-      <p class="home-kicker">How I Write</p>
-      <h2>我希望这不是一个“看过就忘”的博客</h2>
-      <p>每篇文章都尽量回答三个问题：它解决了什么问题、为什么成立、以及如果真的要做，应该怎么落地。</p>
-      <ul>
-        <li>文献笔记不只复述结论，也会补上我自己的判断。</li>
-        <li>工程文章不只贴做法，也会说明设计取舍和风险边界。</li>
-        <li>更长远的目标，是把这些内容逐渐积累成一套自己的研究与构建地图。</li>
-      </ul>
-    </section>
+    {{ if gt (len $posts) 0 }}
+      <section class="home-section">
+        <div class="home-section__header">
+          <div>
+            <p class="home-kicker">Latest Note</p>
+            <h2 class="home-section__title">最近更新</h2>
+            <p class="home-section__intro">按时间展示最近整理完成的一篇笔记。</p>
+          </div>
+        </div>
+        <div class="note-grid">
+          {{ range first 1 $posts }}
+            {{ $page := . }}
+            <a class="note-card note-card--feature" href="{{ .RelPermalink }}">
+              <div class="note-card__meta">最新更新</div>
+              <h3 class="note-card__title">{{ .Title }}</h3>
+              <p class="note-card__desc">
+                {{ with .Description }}
+                  {{ . }}
+                {{ else }}
+                  {{ with .Params.summary }}
+                    {{ . }}
+                  {{ else }}
+                    {{ $page.Summary | plainify | truncate 150 }}
+                  {{ end }}
+                {{ end }}
+              </p>
+              <div class="note-card__footer">{{ partial "meta/date.html" .Date }}{{ with .Params.categories }}<span class="px-2 text-primary-500">&middot;</span>{{ index . 0 }}{{ end }}</div>
+            </a>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   </div>
 {{ end }}
