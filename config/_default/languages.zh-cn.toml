@@ -2,7 +2,7 @@ disabled = false
 languageCode = "zh-CN"
 languageName = "中文"
 weight = 1
-title = "Perkin's Blog"
+title = "Perkin's Notes"
 
 [params]
   displayName = "ZH"
