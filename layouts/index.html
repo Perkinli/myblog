@@ -3,38 +3,30 @@
   <div class="home-shell">
     <section class="home-hero">
       <div class="home-hero__content">
-        <p class="home-kicker">Perkin's Lab Notes</p>
+        <p class="home-kicker">Research Journal</p>
         <h1 class="home-title">{{ .Site.Params.Author.headline }}</h1>
-        <p class="home-copy">{{ .Site.Params.Author.bio }}</p>
+        <p class="home-subtitle">RL / MLLM / Embodied AI</p>
         <div class="home-actions">
-          <a href="/posts/">阅读最新笔记</a>
-          <a href="/about/">了解我在写什么</a>
+          <a href="/posts/">论文笔记</a>
+          <a href="/about/">About Me</a>
         </div>
-        <ul class="home-topics">
-          <li>RL</li>
-          <li>MLLM</li>
-          <li>Embodied AI</li>
-          <li>论文笔记</li>
-        </ul>
       </div>
       <aside class="home-panel">
-        <h2>写作方向</h2>
-        <p>这个站点主要用来按研究方向整理阅读笔记，尽量保持内容简洁、结构清楚、方便自己长期回看。</p>
+        <h2>数据统计</h2>
         <div class="home-stats">
           <div>
             <strong>{{ len $posts }}</strong>
-            <span>已发布文章</span>
+            <span>笔记数量</span>
           </div>
           <div>
             <strong>{{ len .Site.Taxonomies.tags }}</strong>
-            <span>标签主题</span>
+            <span>研究标签</span>
           </div>
           <div>
             <strong>{{ len .Site.Taxonomies.categories }}</strong>
-            <span>内容栏目</span>
+            <span>主题目录</span>
           </div>
         </div>
-        <p>目前按 MLLM、RL、Embodied AI 三个主题持续归档，后续新笔记会直接进入对应目录。</p>
       </aside>
     </section>
 
@@ -42,29 +34,23 @@
       <div class="home-section__header">
         <div>
           <p class="home-kicker">Research Areas</p>
-          <h2 class="home-section__title">主题目录</h2>
-          <p class="home-section__intro">按研究方向分类归档，后续阅读笔记会持续放进对应目录中。</p>
         </div>
-        <a class="home-section__all" href="/posts/">查看全部目录</a>
       </div>
       <div class="note-grid">
         <a class="note-card note-card--feature" href="/posts/mllm/">
           <div class="note-card__meta">目录</div>
           <h3 class="note-card__title">MLLM</h3>
-          <p class="note-card__desc">多模态大模型相关的论文阅读、评测笔记与方法记录。</p>
-          <div class="note-card__footer">进入目录</div>
+          <p class="note-card__desc">多模态大模型论文笔记</p>
         </a>
         <a class="note-card" href="/posts/rl/">
           <div class="note-card__meta">目录</div>
           <h3 class="note-card__title">RL</h3>
-          <p class="note-card__desc">强化学习相关的论文阅读与实验笔记，后续会逐步补充。</p>
-          <div class="note-card__footer">进入目录</div>
+          <p class="note-card__desc">强化学习论文笔记</p>
         </a>
         <a class="note-card" href="/posts/embodied-ai/">
           <div class="note-card__meta">目录</div>
           <h3 class="note-card__title">Embodied AI</h3>
-          <p class="note-card__desc">具身智能方向的阅读记录、任务理解与系统观察。</p>
-          <div class="note-card__footer">进入目录</div>
+          <p class="note-card__desc">具身智能论文笔记</p>
         </a>
       </div>
     </section>
@@ -74,8 +60,6 @@
         <div class="home-section__header">
           <div>
             <p class="home-kicker">Latest Note</p>
-            <h2 class="home-section__title">最近更新</h2>
-            <p class="home-section__intro">按时间展示最近整理完成的一篇笔记。</p>
           </div>
         </div>
         <div class="note-grid">

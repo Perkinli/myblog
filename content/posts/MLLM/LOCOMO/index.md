@@ -1,7 +1,6 @@
 ---
-title: "LOCOMO——长期对话数据集+评估框架"
+title: "LOCOMO"
 date: 2026-03-20
-description: "ACL 2024 论文《Evaluating Very Long-Term Conversational Memory of LLM Agents》阅读笔记。"
 summary: "提出长期对话数据集 LOCOMO，设计问答、总结、生成三类评估任务，并比较基础 LLM、长上下文 LLM 与 RAG 增强 LLM 在长期记忆场景下的表现。"
 url: "/posts/MLLM/locomo/"
 tags: ["MLLM", "长期记忆", "RAG", "ACL 2024", "论文笔记"]
@@ -16,25 +15,44 @@ paperLink: "https://arxiv.org/abs/2402.17753"
 ---
 
 <div class="paper-meta">
-  <div>
-    <span class="paper-meta__label">论文</span>
+  <div class="paper-meta__main">
+    <span class="paper-meta__label paper-meta__label--dot">论文信息</span>
     <strong>Evaluating Very Long-Term Conversational Memory of LLM Agents</strong>
+    <div class="paper-meta__sub">
+      <span class="paper-meta__item">
+        <span class="paper-meta__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 12V7a2 2 0 0 0-2-2h-5"></path>
+            <path d="M4 5h6a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3V5Z"></path>
+            <path d="M20 19h-6"></path>
+          </svg>
+        </span>
+        ACL 2024
+      </span>
+      <span class="paper-meta__item">
+        <span class="paper-meta__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 2v4"></path>
+            <path d="M16 2v4"></path>
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+            <path d="M3 10h18"></path>
+          </svg>
+        </span>
+        2024-02-27（arXiv）
+      </span>
+    </div>
   </div>
-  <div>
-    <span class="paper-meta__label">会议</span>
-    <strong>ACL 2024</strong>
-  </div>
-  <div>
-    <span class="paper-meta__label">时间</span>
-    <strong>2024-02-27（arXiv）</strong>
-  </div>
-  <div>
-    <span class="paper-meta__label">链接</span>
+  <div class="paper-meta__link">
     <a href="https://arxiv.org/abs/2402.17753">arXiv</a>
   </div>
 </div>
 
-> TL;DR：提出长期对话数据集 LOCOMO，提出包含三类任务的评估标准，对三类 LLM 进行测试（基础 LLM、长上下文 LLM、RAG 增强 LLM）。
+<div class="note-callout note-callout--tldr">
+  <span class="note-callout__label">TL;DR</span>
+  <div>
+    <p>提出长期对话数据集 LOCOMO，提出包含三类任务的评估标准，对三类 LLM 进行测试（基础 LLM、长上下文 LLM、RAG 增强 LLM）。</p>
+  </div>
+</div>
 
 ## 一、问题背景
 

@@ -13,7 +13,7 @@ title = "Perkin's Blog"
 
 [params.author]
   name = "Perkin Li"
-  headline = "RL / MLLM / Embodied AI 研究笔记"
+  headline = "Perkin's Notes"
   bio = "关注 RL、MLLM 与 Embodied AI，主要记录论文阅读、问题拆解与实验过程中的个人笔记。"
   links = [
     { github = "https://github.com/Perkinli" },
