@@ -4,6 +4,7 @@ description: "Perkin Li 的个人简介与写作方向"
 showDate: false
 showReadingTime: false
 showWordCount: false
+showTableOfContents: false
 ---
 
 ## Hi, I'm Perkin

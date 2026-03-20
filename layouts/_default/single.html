@@ -63,7 +63,9 @@
       {{ $topClass := cond (hasPrefix site.Params.header.layout "fixed") "lg:top-[140px]" "lg:top-10" }}
       <div class="single-layout__content">
         {{ partial "series/series.html" . }}
-        <div class="article-content paper-article prose dark:prose-invert">
+        {{ $contentClass := "article-content prose dark:prose-invert" }}
+        {{ if eq .Section "posts" }}{{ $contentClass = print $contentClass " paper-article" }}{{ end }}
+        <div class="{{ $contentClass }}">
           {{ .Content }}
           {{ $defaultReplyByEmail := site.Params.replyByEmail }}
           {{ $replyByEmail := default $defaultReplyByEmail .Params.replyByEmail }}
