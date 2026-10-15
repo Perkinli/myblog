@@ -1,3 +1,4 @@
+logo = "images/perkin-logo.png"
 # -- Theme Options --
 # These options control how the theme functions and allow you to
 # customise the display of your website.
@@ -41,7 +42,7 @@ giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [header]
-  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
 
 [footer]
   showMenu = true

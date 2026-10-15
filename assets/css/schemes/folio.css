@@ -1,7 +1,7 @@
 /* Folio scheme */
 :root {
-  --color-neutral: 248, 250, 252;
-  --color-neutral-50: 248, 250, 252;
+  --color-neutral: 248, 246, 240;
+  --color-neutral-50: 248, 246, 240;
   --color-neutral-100: 241, 245, 249;
   --color-neutral-200: 226, 232, 240;
   --color-neutral-300: 203, 213, 225;
@@ -16,9 +16,9 @@
   --color-primary-200: 191, 219, 254;
   --color-primary-300: 147, 197, 253;
   --color-primary-400: 96, 165, 250;
-  --color-primary-500: 59, 130, 246;
-  --color-primary-600: 37, 99, 235;
-  --color-primary-700: 29, 78, 216;
+  --color-primary-500: 82, 122, 118;
+  --color-primary-600: 61, 102, 99;
+  --color-primary-700: 32, 58, 75;
   --color-primary-800: 30, 64, 175;
   --color-primary-900: 30, 58, 138;
   --color-secondary-50: 240, 253, 250;
